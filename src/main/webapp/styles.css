@@ -1,0 +1,15 @@
+body {
+    font-family: Arial, Tahoma, sans-serif;
+    font-size: 14px;
+    background-color: #f8f8f8;
+}
+
+h1 {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+form {
+    display: block;
+    width: 10%;
+}
