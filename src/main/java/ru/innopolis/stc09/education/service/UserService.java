@@ -4,8 +4,6 @@ import org.apache.commons.codec.digest.DigestUtils;
 import ru.innopolis.stc09.education.dao.UserDAO;
 import ru.innopolis.stc09.education.obj.User;
 
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 
 public class UserService {
@@ -19,14 +17,6 @@ public class UserService {
             e.printStackTrace();
         }
 
-        MessageDigest md = null;
-        try {
-            md = MessageDigest.getInstance("MD5");
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-        }
-        md.update(password.getBytes());
-        byte[] digest = md.digest();
         String passHash = DigestUtils.md5Hex(password);
 
         if ((user != null) && (user.getPassword().equals(passHash))) {

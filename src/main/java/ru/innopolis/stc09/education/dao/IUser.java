@@ -7,9 +7,7 @@ import java.sql.SQLException;
 
 public interface IUser {
     public boolean add(User user);
-
     public User getById(int id) throws SQLException;
-
     public boolean update(User user);
 
     public boolean deleteById(int id);
