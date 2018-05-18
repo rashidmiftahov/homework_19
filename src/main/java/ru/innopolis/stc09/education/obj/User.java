@@ -7,6 +7,7 @@ public class User {
     private Role role;
     private String login;
     private String password;
+    private int group_id;
 
     public User(int id, String login, String password, int role_id) {
         this.id = id;
@@ -15,13 +16,13 @@ public class User {
         this.password = password;
     }
 
-    public User(int id, String fullname, int role_id, String login, String password) {
+    public User(int id, String fullname, int role_id, String login, String password, int group_id) {
         this.id = id;
         this.fullname = fullname;
         this.role_id = role_id;
         this.login = login;
         this.password = password;
-
+        this.group_id = group_id;
     }
 
     public int getId() {
@@ -72,5 +73,12 @@ public class User {
         this.password = password;
     }
 
+    public int getGroup_id() {
+        return group_id;
+    }
+
+    public void setGroup_id(int group_id) {
+        this.group_id = group_id;
+    }
 
 }

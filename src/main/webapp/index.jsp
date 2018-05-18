@@ -9,7 +9,8 @@
 <html>
 <head>
     <meta charset="utf-8"/>
-    <link href="styles.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.servletContext.contextPath}/styles.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <title>Авторизация пользователя</title>
 </head>
 <body>

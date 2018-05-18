@@ -23,6 +23,15 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>StudentsController</servlet-name>
+        <servlet-class>ru.innopolis.stc09.education.controller.StudentsController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>StudentsController</servlet-name>
+        <url-pattern>/students</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>NotesControlles</servlet-name>
         <servlet-class>ru.innopolis.stc09.education.controller.NotesController</servlet-class>
     </servlet>

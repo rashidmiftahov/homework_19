@@ -7,6 +7,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserDAO implements IUser {
     private static ConnectionManager connectionManager = ConnectionManager.getInstance();
@@ -45,7 +47,8 @@ public class UserDAO implements IUser {
                     resultSet.getString("fullname"),
                     resultSet.getInt("role_id"),
                     resultSet.getString("login"),
-                    resultSet.getString("password"));
+                    resultSet.getString("password"),
+                    resultSet.getInt("group_id"));
         }
         connection.close();
         return user;
@@ -100,6 +103,29 @@ public class UserDAO implements IUser {
         if (resultSet.next()) {
             result = new User(resultSet.getInt("id"), resultSet.getString("login"),
                     resultSet.getString("password"), resultSet.getInt("role_id"));
+        }
+        connection.close();
+        return result;
+    }
+
+    @Override
+    public List<User> getStudentsByGroupId(int groupId) throws SQLException {
+        ArrayList<User> result = new ArrayList<>();
+        Connection connection = connectionManager.getConnection();
+        PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM public.\"user\" WHERE group_id = ?");
+        preparedStatement.setInt(1, groupId);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        User user = null;
+        while (resultSet.next()) {
+            user = new User(
+                    resultSet.getInt("id"),
+                    resultSet.getString("fullname"),
+                    resultSet.getInt("role_id"),
+                    resultSet.getString("login"),
+                    resultSet.getString("password"),
+                    resultSet.getInt("group_id")
+            );
+            result.add(user);
         }
         connection.close();
         return result;
